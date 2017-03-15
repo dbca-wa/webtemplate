@@ -24,7 +24,7 @@ setup(
     maintainer='Ashley Felton',
     maintainer_email='asi@dpaw.wa.gov.au',
     license='Apache License, Version 2.0',
-    url='https://bitbucket.org/dpaw/webtemplate-dpaw',
+    url='https://github.com/parksandwildlife/webtemplate-dpaw',
     description='Base HTML templates for DPaW Django projects',
     long_description=README,
     keywords=['django', 'html', 'template', 'dpaw'],
