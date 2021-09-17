@@ -3,7 +3,7 @@
 from setuptools import setup
 import os
 
-with open(os.path.join(os.path.dirname(__file__), 'README.rst')) as readme:
+with open(os.path.join(os.path.dirname(__file__), 'README.md')) as readme:
     README = readme.read()
 
 install_requires = [
@@ -27,6 +27,7 @@ setup(
     url='https://github.com/dbca-wa/webtemplate',
     description='Base HTML templates for DBCA Django projects',
     long_description=README,
+    long_description_content_type='text/markdown',
     keywords=['django', 'html', 'template', 'bootstrap'],
     classifiers=[
         'Framework :: Django',
