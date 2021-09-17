@@ -9,7 +9,7 @@ with open(os.path.join(os.path.dirname(__file__), 'README.rst')) as readme:
 install_requires = [
     'Django>=2.2',
 ]
-version = ('1.3.1')
+version = ('1.4.0')
 
 setup(
     name='webtemplate-dbca',
@@ -27,7 +27,7 @@ setup(
     url='https://github.com/dbca-wa/webtemplate',
     description='Base HTML templates for DBCA Django projects',
     long_description=README,
-    keywords=['django', 'html', 'template'],
+    keywords=['django', 'html', 'template', 'bootstrap'],
     classifiers=[
         'Framework :: Django',
         'Framework :: Django :: 2.2',
