@@ -47,3 +47,14 @@ class TestB4Page(TemplateView):
         context['page_description'] = 'Meta tag page description'
         context['site_title'] = 'SITE TITLE'
         return context
+
+
+class TestB5Page(TemplateView):
+    template_name = 'webtemplate_dbca/base_b5.html'
+
+    def get_context_data(self, **kwargs):
+        context = super(TestB5Page, self).get_context_data(**kwargs)
+        context['page_title'] = 'Test Bootstrap 5 page'
+        context['page_description'] = 'Meta tag page description'
+        context['site_title'] = 'SITE TITLE'
+        return context

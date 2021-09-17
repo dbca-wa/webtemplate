@@ -81,3 +81,13 @@ class BaseTemplateTest(TestCase):
         self.assertTemplateUsed(response, 'webtemplate_dbca/base_b4.html')
         self.assertContains(response, '<a class="nav-link" id="id_a_login" href="/login/">Log in</a>')
         self.assertContains(response, '<title>Test page</title>')
+
+    def test_base_b5_template_render(self):
+        """Test that the base_b5 template renders with expected content.
+        """
+        url = reverse('test_page_b5')
+        response = self.client.get(url)
+        self.assertEqual(response.status_code, 200)
+        self.assertTemplateUsed(response, 'webtemplate_dbca/base_b5.html')
+        self.assertContains(response, '<a class="nav-link" id="id_a_login" href="/login/">Log in</a>')
+        self.assertContains(response, '<title>Test Bootstrap 5 page</title>')
