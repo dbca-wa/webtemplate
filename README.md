@@ -1,46 +1,35 @@
-========================
-DBCA Django web template
-========================
+# DBCA Django web template
 
 This project consists of a basic Django application containing HTML
 templates that provide a starting point for web applications used by the
-`Department`_. The base template consists of a mobile-friendly
+[Department](http://www.dbca.wa.gov.au). The base template consists of a mobile-friendly
 HTML5 template with a fixed top navbar, plus static assets.
 The project also contains functional examples of **login** and
 **logged out** templates.
 
-The base template is based upon `HTML5 Boilerplate`_, and includes the
-`Bootstrap 3`_ CSS framework.
+The base templates are based upon [HTML5 Boilerplate](https://html5boilerplate.com).
 
-The base_b4 template is based upon `HTML5 Boilerplate`_, and includes the
-`Bootstrap 4`_ CSS framework.
+# Installation
 
-The base_b5 template is based upon `HTML5 Boilerplate`_, and includes the
-`Bootstrap 5`_ CSS framework.
-
-Installation
-============
-
-#. Install via pip: ``pip install webtemplate-dbca``.
-#. Add ``'webtemplate_dbca'`` to ``INSTALLED_APPS``.
-#. Ensure that the ``staticfiles`` application is included and configured
+#. Install via pip: `pip install webtemplate-dbca`.
+#. Add `'webtemplate_dbca'` to `INSTALLED_APPS`.
+#. Ensure that the `staticfiles` application is included and configured
    correctly.
-#. (Optional) Ensure that you have defined the following named URLs: ``login`` and
-   ``logout`` (this requirement can be overriden, see below).
+#. (Optional) Ensure that you have defined the following named URLs: `login` and
+   `logout` (this requirement can be overriden, see below).
 #. Extend the included base template by placing the following at the head
-   of your own templates: ``{% extends "webtemplate_dbca/base.html" %}``
+   of your own templates, e.g. `{% extends "webtemplate_dbca/base_b4.html" %}`
 #. Place page content within the required blocks (see below).
 
-Included CSS and JavaScript
-===========================
+# Included CSS and JavaScript
 
 The base/base_b4/base_b5 templates include the following CSS and JavaScript assets:
 
-#. Modernizr (HTML5 polyfills)
-#. Bootstrap 3, 4 or 5 (CSS & JS)
-#. jQuery
+- Modernizr (HTML5 polyfills)
+- Bootstrap 3, 4 or 5 (CSS & JS)
+- jQuery
 
-Additional styling can be included using the ``extra_style`` or ``extra_js``
+Additional styling can be included using the `extra_style` or `extra_js`
 blocks, like so::
 
     {% load static from staticfiles %}
@@ -50,13 +39,13 @@ blocks, like so::
     <link rel="stylesheet" href="{% static 'css/custom.css' %}">
     {% endblock %}
 
-You can also overide the ``base_style`` and ``base_js`` blocks completely to
+You can also overide the `base_style` and `base_js` blocks completely to
 use different CSS or JS libraries. Note that you will also need to replace the
-``top_navbar`` block contents if you replace the base Bootstrap CSS & JS.
+`top_navbar` block contents if you replace the base Bootstrap CSS & JS.
 
 The version of jQuery which is loaded in the base is by default a slimmed-down
 minimal version of the library. To include a different specific version, override
-the ``jquery_version`` block. Example::
+the `jquery_version` block. Example::
 
     {% block jquery_version %}
     <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
@@ -65,40 +54,38 @@ the ``jquery_version`` block. Example::
 **NOTE**: There is no jQuery loaded with the base_b5 template, as it was dropped
 as a requirement of Bootstrap.
 
-Template blocks
-===============
+# Template blocks
 
 The base template contains a number of block tags that are used to render the
 content of your project. The main template content blocks are as follows:
 
-- ``navbar_links`` - used to define navigation links in the top navbar.
-- ``navbar_auth`` - used to display either a **Login** or **Logout** link.
-- ``page_content`` - used to contain the page's main content.
-- ``page_footer`` - used to contain a page footer area.
+- `navbar_links` - used to define navigation links in the top navbar.
+- `navbar_auth` - used to display either a **Login** or **Logout** link.
+- `page_content` - used to contain the page's main content.
+- `page_footer` - used to contain a page footer area.
 
-Note that the ``navbar_auth`` block contains ``{% url %}`` templatetags with
+Note that the `navbar_auth` block contains `{% url %}` templatetags with
 named URLs called *login* and *logout*. If this is not required or
-inappropriate for your project, simply override the ``navbar_auth`` block
+inappropriate for your project, simply override the `navbar_auth` block
 in a base template like so::
 
     {% block navbar_auth %}{% endblock %}
 
 In addition, a number of context variables are defined:
 
-- ``page_title`` - used to populate the page **<title>** tags.
-- ``site_title`` - used to populate the projects's title in the top navbar.
-- ``site_acronym`` - used to populate a shorter title in the navbar (B4 template).
+- `page_title` - used to populate the page **<title>** tags.
+- `site_title` - used to populate the projects's title in the top navbar.
+- `site_acronym` - used to populate a shorter title in the navbar (B4 template).
 
 Context variables should be passed to templates in every view.
 
-Bootstrap 4 & 5 examples
-=======================
+# Bootstrap 4 & 5 examples
 
 The following examples apply to the `base_b4.html` and `base_b5.html` templates.
 
 To extend the base template with an optional row to display alert messages plus
 a shaded footer div, try the following (further page content is then injected to
-the ``page_content_inner`` block)::
+the `page_content_inner` block)::
 
     {% extends "webtemplate_dbca/base_b4.html" %}
 
@@ -146,7 +133,7 @@ the ``page_content_inner`` block)::
 Bootstrap 3 examples
 ====================
 
-The following examples apply to the ``base.html`` template.
+The following examples apply to the `base.html` template.
 
 To populate the main content area with a narrow left sidebar and content
 area that fills the whole screen width and will collapse elegantly on
@@ -178,21 +165,13 @@ To include a right-aligned copyright line in the footer area::
     {% endblock %}
 
 To include no navigation links in the top navbar and to prevent the automatic
-"navbar button" from showing on narrow displays, overide the ``navbar_button``
-and ``navbar_links`` blocks to be empty::
+"navbar button" from showing on narrow displays, overide the `navbar_button`
+and `navbar_links` blocks to be empty::
 
     {% block navbar_button %}{% endblock %}
     {% block navbar_links %}{% endblock %}
 
-Development
-===========
+# Development
 
-Create a virtualenv and install local requirements using `python setup.py -q install`
-
-Run unit tests using `python runtests.py`
-
-.. _Department: http://www.dbca.wa.gov.au
-.. _HTML5 Boilerplate: https://html5boilerplate.com
-.. _Bootstrap 3: https://getbootstrap.com/docs/3.3/
-.. _Bootstrap 4: https://getbootstrap.com/docs/4.5/
-.. _Bootstrap 5: https://getbootstrap.com/docs/5.1/
+1. Create a virtualenv and install local requirements using `python setup.py -q install`
+1. Run unit tests using `python runtests.py`
