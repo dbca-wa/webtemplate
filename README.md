@@ -11,15 +11,15 @@ The base templates are based upon [HTML5 Boilerplate](https://html5boilerplate.c
 
 # Installation
 
-#. Install via pip: `pip install webtemplate-dbca`.
-#. Add `'webtemplate_dbca'` to `INSTALLED_APPS`.
-#. Ensure that the `staticfiles` application is included and configured
+1. Install via pip: `pip install webtemplate-dbca`.
+1. Add `'webtemplate_dbca'` to `INSTALLED_APPS`.
+1. Ensure that the `staticfiles` application is included and configured
    correctly.
-#. (Optional) Ensure that you have defined the following named URLs: `login` and
+1. (Optional) Ensure that you have defined the following named URLs: `login` and
    `logout` (this requirement can be overriden, see below).
-#. Extend the included base template by placing the following at the head
+1. Extend the included base template by placing the following at the head
    of your own templates, e.g. `{% extends "webtemplate_dbca/base_b4.html" %}`
-#. Place page content within the required blocks (see below).
+1. Place page content within the required blocks (see below).
 
 # Included CSS and JavaScript
 
