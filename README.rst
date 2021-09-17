@@ -15,6 +15,9 @@ The base template is based upon `HTML5 Boilerplate`_, and includes the
 The base_b4 template is based upon `HTML5 Boilerplate`_, and includes the
 `Bootstrap 4`_ CSS framework.
 
+The base_b5 template is based upon `HTML5 Boilerplate`_, and includes the
+`Bootstrap 5`_ CSS framework.
+
 Installation
 ============
 
@@ -31,11 +34,11 @@ Installation
 Included CSS and JavaScript
 ===========================
 
-The base/base_b4 templates include the following CSS and JavaScript assets:
+The base/base_b4/base_b5 templates include the following CSS and JavaScript assets:
 
 #. Modernizr (HTML5 polyfills)
-#. Bootstrap 3 or 4 (CSS & JS)
-#. jQuery (DOM traversal, etc.)
+#. Bootstrap 3, 4 or 5 (CSS & JS)
+#. jQuery
 
 Additional styling can be included using the ``extra_style`` or ``extra_js``
 blocks, like so::
@@ -58,6 +61,9 @@ the ``jquery_version`` block. Example::
     {% block jquery_version %}
     <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
     {% endblock %}
+
+**NOTE**: There is no jQuery loaded with the base_b5 template, as it was dropped
+as a requirement of Bootstrap.
 
 Template blocks
 ===============
@@ -85,10 +91,10 @@ In addition, a number of context variables are defined:
 
 Context variables should be passed to templates in every view.
 
-Bootstrap 4 examples
-====================
+Bootstrap 4 & 5 examples
+=======================
 
-The following examples apply to the ``base_b4.html`` template.
+The following examples apply to the `base_b4.html` and `base_b5.html` templates.
 
 To extend the base template with an optional row to display alert messages plus
 a shaded footer div, try the following (further page content is then injected to
@@ -189,3 +195,4 @@ Run unit tests using `python runtests.py`
 .. _HTML5 Boilerplate: https://html5boilerplate.com
 .. _Bootstrap 3: https://getbootstrap.com/docs/3.3/
 .. _Bootstrap 4: https://getbootstrap.com/docs/4.5/
+.. _Bootstrap 5: https://getbootstrap.com/docs/5.1/
