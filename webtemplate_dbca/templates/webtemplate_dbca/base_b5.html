@@ -28,6 +28,8 @@
     <body>
         {% block top_navbar %}
         <nav class="{% block navbar_class %}navbar fixed-top navbar-expand-md navbar-dark bg-dark{% endblock navbar_class %}">
+          <div class="container-fluid">
+
             {% block navbar_brand %}
             <a class="navbar-brand d-block d-sm-none" href="/">
                 {{ site_acronym }}
@@ -40,45 +42,38 @@
             </a>
             {% endblock navbar_brand %}
 
-            {% block navbar_button %}
-            <button class="{% block navbar_button_class %}navbar-toggler{% endblock %}" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            {% block navbar_links %}
+            <button class="{% block navbar_button_class %}navbar-toggler{% endblock %}" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
-            {% endblock navbar_button %}
 
-            {% block navbar_links %}
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav mr-auto">
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Link 1<span class="sr-only">(current)</span></a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Link 2</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
-                    </li>
-                    <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Menu
-                    </a>
-                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="#">Action 1</a>
-                        <a class="dropdown-item" href="#">Action 2</a>
-                        <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="#">Action 3</a>
-                    </div><!-- .dropdown-menu -->
-                    </li>
-                    {% block navbar_auth %}
-                    {% if not user.is_authenticated %}
-                    <li class="nav-item">
-                        <a class="nav-link" id="id_a_login" href="{% url 'login' %}">Log in</a>
-                    </li>
-                    {% endif %}
-                    {% endblock navbar_auth %}
-                </ul><!-- .navbar-nav -->
-            </div><!-- #navbarSupportedContent -->
-            {% endblock navbar_links%}
+            <div class="collapse navbar-collapse" id="navbarScroll">
+              <ul class="navbar-nav ms-auto">
+                <li class="nav-item">
+                  <a class="nav-link active" aria-current="page" href="#">Home</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#">Link</a>
+                </li>
+                <li class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle" href="#" id="navbarScrollingDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    Link
+                  </a>
+                  <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarScrollingDropdown">
+                    <li><a class="dropdown-item" href="#">Action</a></li>
+                    <li><a class="dropdown-item" href="#">Another action</a></li>
+                    <li><hr class="dropdown-divider"></li>
+                    <li><a class="dropdown-item" href="#">Something else here</a></li>
+                  </ul>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Link</a>
+                </li>
+              </ul>
+            </div><!-- #navbarScroll -->
+            {% endblock navbar_links %}
+
+          </div>
         </nav>
         {% endblock top_navbar %}
 
