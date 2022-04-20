@@ -1,12 +1,5 @@
 body {
-  padding-top: 60px;
-  font-family: "Source Sans Pro", sans-serif;
-  -webkit-font-smoothing: antialiased;
-  text-rendering: optimizeLegibility;
-  font-weight: 400; }
-
-h1, h2, h3, h4, h5, h6 {
-  font-weight: 700;
+  padding-top: 76px;
 }
 
 .navbar-default {
@@ -74,3 +67,5 @@ img.navbar-brand {
     background-color: #255e6e;
   }
 }
+
+.footer {background-color: #f5f5f5}
