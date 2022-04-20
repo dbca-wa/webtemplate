@@ -67,7 +67,14 @@
                 <li class="nav-item">
                   <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Link</a>
                 </li>
-              </ul>
+                {% block navbar_auth %}
+                {% if not user.is_authenticated %}
+                <li class="nav-item">
+                  <a class="nav-link" id="id_a_login" href="{% url 'login' %}">Log in</a>
+                </li>
+                {% endif %}
+                {% endblock navbar_auth %}
+              </ul><!-- .navbar-nav ms-auto -->
             </div><!-- #navbarScroll -->
             {% endblock navbar_links %}
 
