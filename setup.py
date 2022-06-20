@@ -9,7 +9,7 @@ with open(os.path.join(os.path.dirname(__file__), 'README.md')) as readme:
 install_requires = [
     'Django>=2.2',
 ]
-version = ('1.5.0')
+version = ('1.5.1')
 
 setup(
     name='webtemplate-dbca',
