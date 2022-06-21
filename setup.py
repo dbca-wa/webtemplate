@@ -7,7 +7,7 @@ with open(os.path.join(os.path.dirname(__file__), 'README.md')) as readme:
     README = readme.read()
 
 install_requires = [
-    'Django>=2.2',
+    'Django>=2.2,<4',
 ]
 version = ('1.5.2')
 
