@@ -8,6 +8,7 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="description" content="{{ page_description }}">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta name="author" content="Department of Biodiversity, Conservation and Attractions">
         {% block polyfill_js %}
         <script src="{% static 'js/vendor/modernizr-3.11.7.min.js' %}"></script>
         {% endblock polyfill_js %}
@@ -33,9 +34,7 @@
                 {{ site_acronym }}
             </a>
             <a class="navbar-brand d-none d-sm-block" href="/">
-                {% block navbar_logo %}
-                <img class="d-inline-block" src="{% static 'img/dbca_logo_sml.png' %}" height="50">
-                {% endblock navbar_logo %}
+                {% block navbar_logo %}<img class="d-inline-block" src="{% static 'img/dbca_logo_sml.png' %}" height="50">{% endblock navbar_logo %}
                 {{ site_title }}
             </a>
             {% endblock navbar_brand %}
