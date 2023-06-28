@@ -130,8 +130,7 @@ the `page_content_inner` block)::
     </footer>
     {% endblock page_footer %}
 
-Bootstrap 3 examples
-====================
+# Bootstrap 3 examples
 
 The following examples apply to the `base.html` template.
 

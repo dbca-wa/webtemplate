@@ -7,9 +7,9 @@ with open(os.path.join(os.path.dirname(__file__), 'README.md')) as readme:
     README = readme.read()
 
 install_requires = [
-    'Django>=2.2,<4',
+    'Django>=3.2,<5',
 ]
-version = ('1.5.2')
+version = ('1.6.0')
 
 setup(
     name='webtemplate-dbca',
@@ -31,20 +31,20 @@ setup(
     keywords=['django', 'html', 'template', 'bootstrap'],
     classifiers=[
         'Framework :: Django',
-        'Framework :: Django :: 2.2',
-        'Framework :: Django :: 3.0',
-        'Framework :: Django :: 3.1',
         'Framework :: Django :: 3.2',
+        'Framework :: Django :: 4.0',
+        'Framework :: Django :: 4.1',
+        'Framework :: Django :: 4.2',
         'Environment :: Web Environment',
         'Intended Audience :: Developers',
         'Development Status :: 5 - Production/Stable',
         'License :: OSI Approved :: Apache Software License',
         'Programming Language :: Python',
         'Programming Language :: Python :: 3',
-        'Programming Language :: Python :: 3.6',
         'Programming Language :: Python :: 3.7',
         'Programming Language :: Python :: 3.8',
         'Programming Language :: Python :: 3.9',
+        'Programming Language :: Python :: 3.10',
         'Topic :: Software Development :: Libraries',
         'Topic :: Software Development :: Libraries :: Python Modules',
     ],
