@@ -27,7 +27,7 @@ The base/base_b4/base_b5 templates include the following CSS and JavaScript asse
 
 - Modernizr (HTML5 polyfills)
 - Bootstrap 3, 4 or 5 (CSS & JS)
-- jQuery
+- jQuery (base/base_b4 templates)
 
 Additional styling can be included using the `extra_style` or `extra_js`
 blocks, like so::
