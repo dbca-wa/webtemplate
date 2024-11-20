@@ -9,7 +9,30 @@ The project also contains functional examples of **login** and
 
 The base templates are based upon [HTML5 Boilerplate](https://html5boilerplate.com).
 
-# Installation
+## Development
+
+This project for development is using
+[Poetry](https://python-poetry.org/docs/) to install and manage a virtual Python
+environment. With Poetry installed, change into the project directory and run:
+
+    poetry install
+
+Activate the virtualenv like so:
+
+    poetry shell
+
+Run unit tests using `pytest` (or `tox`, to test against multiple Python versions):
+
+    pytest -v
+    tox -v
+
+## Releases
+
+Tagged releases are built and pushed to PyPI automatically using a GitHub
+workflow in the project. Update the project version in `pyproject.toml` and
+tag the required commit with the same value to trigger a release.
+
+## Installation
 
 1. Install via pip: `pip install webtemplate-dbca`.
 1. Add `'webtemplate_dbca'` to `INSTALLED_APPS`.
@@ -21,7 +44,7 @@ The base templates are based upon [HTML5 Boilerplate](https://html5boilerplate.c
    of your own templates, e.g. `{% extends "webtemplate_dbca/base_b4.html" %}`
 1. Place page content within the required blocks (see below).
 
-# Included CSS and JavaScript
+## Included CSS and JavaScript
 
 The base/base_b4/base_b5 templates include the following CSS and JavaScript assets:
 
@@ -54,7 +77,7 @@ the `jquery_version` block. Example::
 **NOTE**: There is no jQuery loaded with the base_b5 template, as it was dropped
 as a requirement of Bootstrap.
 
-# Template blocks
+## Template blocks
 
 The base template contains a number of block tags that are used to render the
 content of your project. The main template content blocks are as follows:
@@ -65,7 +88,7 @@ content of your project. The main template content blocks are as follows:
 - `page_footer` - used to contain a page footer area.
 
 Note that the `navbar_auth` block contains `{% url %}` templatetags with
-named URLs called *login* and *logout*. If this is not required or
+named URLs called _login_ and _logout_. If this is not required or
 inappropriate for your project, simply override the `navbar_auth` block
 in a base template like so::
 
@@ -79,7 +102,7 @@ In addition, a number of context variables are defined:
 
 Context variables should be passed to templates in every view.
 
-# Bootstrap 4 & 5 examples
+## Bootstrap 4 & 5 examples
 
 The following examples apply to the `base_b4.html` and `base_b5.html` templates.
 
@@ -130,7 +153,7 @@ the `page_content_inner` block)::
     </footer>
     {% endblock page_footer %}
 
-# Bootstrap 3 examples
+## Bootstrap 3 examples
 
 The following examples apply to the `base.html` template.
 
@@ -169,8 +192,3 @@ and `navbar_links` blocks to be empty::
 
     {% block navbar_button %}{% endblock %}
     {% block navbar_links %}{% endblock %}
-
-# Development
-
-1. Create a virtualenv and install local requirements using `python setup.py -q install`
-1. Run unit tests using `python runtests.py`
