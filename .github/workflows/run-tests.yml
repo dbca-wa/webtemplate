@@ -4,73 +4,46 @@ on: [push, pull_request]
 
 jobs:
   run_tests:
-    name: Run unit tests for Python ${{ matrix.python-version }}
+    name: Test Python ${{ matrix.python-version }}
     runs-on: ubuntu-latest
     strategy:
       fail-fast: false
+      max-parallel: 4
       matrix:
         python-version:
           - "3.9"
           - "3.10"
           - "3.11"
           - "3.12"
-        django-version:
-          - "3.2"
-          - "4.0"
-          - "4.2"
-          - "5.0"
 
     steps:
-      #----------------------------------------------
-      # Check-out repo and set up Python
-      #----------------------------------------------
       - name: Checkout repo
         uses: actions/checkout@v4
         id: checkout-repo
         with:
           fetch-depth: 0
+
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
           python-version: ${{ matrix.python-version }}
-      #----------------------------------------------
-      # Install & configure Poetry
-      #----------------------------------------------
-      - name: Install Poetry
-        uses: snok/install-poetry@v1
+
+      - name: Get pip cache dir
+        id: pip-cache
+        run: echo "::set-output name=dir::$(pip cache dir)"
+
+      - name: Cache
+        uses: actions/cache@v2
         with:
-          virtualenvs-create: true
-          virtualenvs-in-project: true
-          virtualenvs-path: .venv
-          installer-parallel: true
-      #----------------------------------------------
-      # Load cached venv if cache exists
-      #----------------------------------------------
-      - name: Caches
-        id: cached-poetry-dependencies
-        uses: actions/cache@v4
-        with:
-          path: .venv
-          key: venv-${{ runner.os }}-${{ steps.setup-python.outputs.python-version }}-${{ hashFiles('**/poetry.lock') }}
-      #----------------------------------------------
-      # Install dependencies if cache does not exist
-      #----------------------------------------------
-      - name: Install non-cached dependencies
-        if: steps.cached-poetry-dependencies.outputs.cache-hit != 'true'
-        run: poetry install --no-interaction --no-root
-      #----------------------------------------------
-      # Install the root project, if required
-      #----------------------------------------------
-      - name: Install project
-        run: poetry install --no-interaction
-      - name: Install Django ${{ matrix.django-version }}
+          path: ${{ steps.pip-cache.outputs.dir }}
+          key: ${{ matrix.python-version }}-v1-${{ hashFiles('**/setup.py') }}-${{ hashFiles('**/tox.ini') }}
+          restore-keys: |
+            ${{ matrix.python-version }}-v1-
+
+      - name: Install Python dependencies
         run: |
-          source .venv/bin/activate
-          pip install "django==${{ matrix.django-version }}"
-      #----------------------------------------------
-      # Run unit tests
-      #----------------------------------------------
+          python -m pip install --upgrade pip
+          python -m pip install --upgrade tox tox-gh-actions
+
       - name: Tox tests
-        run: |
-          source .venv/bin/activate
-          tox -v
+        run: tox -v
