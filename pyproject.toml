@@ -25,6 +25,10 @@ classifiers = [
   "Topic :: Software Development :: Libraries :: Python Modules",
 ]
 
+[project.urls]
+Repository = "https://github.com/dbca-wa/webtemplate.git"
+Changelog = "https://github.com/dbca-wa/webtemplate/blob/master/CHANGELOG.md"
+
 [tool.poetry.dependencies]
 python = "^3.9"
 django = ">=3.2, <5.1"
