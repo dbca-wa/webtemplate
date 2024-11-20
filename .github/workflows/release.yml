@@ -1,11 +1,22 @@
 name: Release
 
-on: [push]
+on:
+  push:
+    tags:
+      - "*"
+
+permissions:
+  contents: read
 
 jobs:
-  build:
-    name: Build project package
+  pypi-publish:
+    name: Build and upload release to PyPI
     runs-on: ubuntu-latest
+    environment:
+      name: pypi
+      url: https://pypi.org/project/webtemplate-dbca/
+    permissions:
+      id-token: write
 
     steps:
       - name: Checkout repo
@@ -29,3 +40,6 @@ jobs:
 
       - name: Build project package
         run: poetry build
+
+      - name: Publish package distributions to PyPI
+        uses: pypa/gh-action-pypi-publish@release/v1
