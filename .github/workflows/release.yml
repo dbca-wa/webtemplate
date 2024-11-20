@@ -4,7 +4,7 @@ on: [push]
 
 jobs:
   build:
-    if: github.repository == "dbca-wa/webtemplate"
+    name: Build project package
     runs-on: ubuntu-latest
 
     steps:
