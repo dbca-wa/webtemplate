@@ -2,7 +2,7 @@
 
 ## Unreleased
 
-- Reorganise `pyproject.toml` following Poetry 2.0.0 release (PEP 508 dependency specifiers).
+- Switch to using uv as the project build system.
 
 ## 1.7.2 (2024-11-20)
 

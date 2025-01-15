@@ -11,26 +11,39 @@ The base templates are based upon [HTML5 Boilerplate](https://html5boilerplate.c
 
 ## Development
 
-This project for development is using
-[Poetry](https://python-poetry.org/docs/) to install and manage a virtual Python
-environment. With Poetry installed, change into the project directory and run:
+The recommended way to set up this project for development is using
+[uv](https://docs.astral.sh/uv/)
+to install and manage a Python virtual environment.
+With uv installed, install the required Python version (see `pyproject.toml`). Example:
 
-    poetry install
+    uv python install 3.12
+
+Change into the project directory and run:
+
+    uv python pin 3.12
+    uv sync
 
 Activate the virtualenv like so:
 
-    poetry shell
+    source .venv/bin/activate
 
 Run unit tests using `pytest` (or `tox`, to test against multiple Python versions):
 
-    pytest -v
+    pytest -sv
     tox -v
 
 ## Releases
 
 Tagged releases are built and pushed to PyPI automatically using a GitHub
 workflow in the project. Update the project version in `pyproject.toml` and
-tag the required commit with the same value to trigger a release.
+tag the required commit with the same value to trigger a release. Packages
+can also be built and uploaded manually, if desired.
+
+Build the project locally using uv, [publish to the PyPI registry](https://docs.astral.sh/uv/guides/publish/#publishing-your-package)
+using the same tool if you require:
+
+    uv build
+    uv publish
 
 ## Installation
 
