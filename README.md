@@ -59,10 +59,10 @@ using the same tool if you require:
 
 ## Included CSS and JavaScript
 
-The base/base_b4/base_b5 templates include the following CSS and JavaScript assets:
+The base_b4/base_b5 templates include the following CSS and JavaScript assets:
 
 - Modernizr (HTML5 polyfills)
-- Bootstrap 3, 4 or 5 (CSS & JS)
+- Bootstrap 4 or 5 (CSS & JS)
 - jQuery (base/base_b4 templates)
 
 Additional styling can be included using the `extra_style` or `extra_js`
@@ -165,43 +165,3 @@ the `page_content_inner` block)::
         </div>
     </footer>
     {% endblock page_footer %}
-
-## Bootstrap 3 examples
-
-The following examples apply to the `base.html` template.
-
-To populate the main content area with a narrow left sidebar and content
-area that fills the whole screen width and will collapse elegantly on
-narrow or mobile displays::
-
-    {% block page_content %}
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-xs-12 col-sm-4 col-md-3 col-lg-2" id="sidebar">
-                {% include "sidebar.html" %}
-            </div>
-            <div class="col-xs-12 col-sm-8 col-md-9 col-lg-10">
-                {% block page_content_inner %}{% endblock %}
-            </div>
-        </div>
-    </div>
-    {% endblock %}
-
-To include a right-aligned copyright line in the footer area::
-
-    {% block page_footer %}
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-xs-12">
-                <p class="pull-right">&copy; Department of Biodiversity, Conservation and Attractions</p>
-            </div>
-        </div>
-    </div>
-    {% endblock %}
-
-To include no navigation links in the top navbar and to prevent the automatic
-"navbar button" from showing on narrow displays, overide the `navbar_button`
-and `navbar_links` blocks to be empty::
-
-    {% block navbar_button %}{% endblock %}
-    {% block navbar_links %}{% endblock %}
