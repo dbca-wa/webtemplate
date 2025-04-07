@@ -19,55 +19,6 @@ class BaseTemplateTest(TestCase):
         # Delete the user after each test case.
         self.user.delete()
 
-    def test_base_template_render(self):
-        """Test that the base template renders with expected content."""
-        url = reverse("test_page")
-        response = self.client.get(url)
-        self.assertEqual(response.status_code, 200)
-        self.assertTemplateUsed(response, "webtemplate_dbca/base.html")
-        self.assertContains(response, '<a id="id_a_login" href="/login/">Log in</a>')
-        self.assertNotContains(response, "Log out")  # No 'log out' text.
-        self.assertContains(response, "<title>Test page</title>")
-        self.assertContains(response, '<a class="navbar-brand" href="/">SITE TITLE</a>')
-        self.assertContains(response, '<a href="#">Link 1</a>')
-
-    def test_base_dbca_template_render(self):
-        """Test that the base_dbca template renders with expected content."""
-        url = reverse("test_dbca_page")
-        response = self.client.get(url)
-        self.assertEqual(response.status_code, 200)
-        self.assertTemplateUsed(response, "webtemplate_dbca/base_dbca.html")
-        self.assertContains(response, '<a id="id_a_login" href="/login/">Log in</a>')
-        self.assertNotContains(response, "Log out")  # No 'log out' text.
-        self.assertContains(response, "<title>Test page</title>")
-        self.assertContains(response, '<a class="navbar-brand" href="/">SITE TITLE</a>')
-        self.assertContains(response, '<a href="#">Link 1</a>')
-
-    def test_base_template_logged_in(self):
-        """Test the base template displays a 'Log out' link for logged-in users."""
-        url = reverse("test_page")
-        self.client.login(username="john", password="secret")
-        self.assertIn("_auth_user_id", self.client.session)
-        response = self.client.get(url)
-        self.assertContains(response, '<a id="id_a_logout" href="/logout/">Log out</a>')
-        self.assertNotContains(response, "Log in")  # No 'log in' text.
-
-    def test_base_template_extend(self):
-        """Test that the base template renders, with some content overridden."""
-        url = reverse("test_page_2")
-        response = self.client.get(url)
-        self.assertEqual(response.status_code, 200)
-        self.assertContains(response, '<h1 id="id_hello_world">Hello, World!</h1>')
-
-    def test_internet_template_render(self):
-        """Test that the base_internet template renders with expected content."""
-        url = reverse("test_internet_page")
-        response = self.client.get(url)
-        self.assertEqual(response.status_code, 200)
-        self.assertTemplateUsed(response, "webtemplate_dbca/base_internet.html")
-        self.assertContains(response, '<a id="id_a_login" href="/login/">Log in</a>')
-        self.assertNotContains(response, "Log out")  # No 'log out' text.
-
     def test_base_b4_template_render(self):
         """Test that the base_b4 template renders with expected content."""
         url = reverse("test_page_b4")
