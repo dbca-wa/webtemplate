@@ -1,6 +1,6 @@
 [project]
 name = "webtemplate-dbca"
-version = "1.8.1"
+version = "1.8.2"
 description = "Base HTML templates for DBCA Django projects"
 authors = [{ name = "Ashley Felton", email = "ashley.felton@dbca.wa.gov.au" }]
 readme = "README.md"
