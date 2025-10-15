@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.8.3
+
+- Remove templates containing deprecated Bootstrap 3 libraries.
+
 ## 1.8.2
 
 - (Bugfix) Update `CHANGELOG` to correctly list changes.
