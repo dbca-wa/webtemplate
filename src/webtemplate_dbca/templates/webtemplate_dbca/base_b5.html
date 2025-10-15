@@ -15,11 +15,10 @@
         {% endblock polyfill_js %}
         <!-- CSS styling blocks -->
         {% block base_style %}
-            <link rel="stylesheet"
-                  href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/css/bootstrap.min.css"
-                  integrity="sha512-jnSuA4Ss2PkkikSOLtYs8BlYIeeIK1h99ty4YfvRPAlzr377vr3CXDb7sb7eEEBYjDtcYj+AjBH3FLv5uSJuXg=="
-                  crossorigin="anonymous"
-                  referrerpolicy="no-referrer" />
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.8/js/bootstrap.min.js"
+                    integrity="sha512-nKXmKvJyiGQy343jatQlzDprflyB5c+tKCzGP3Uq67v+lmzfnZUi/ZT+fc6ITZfSC5HhaBKUIvr/nTLCV+7F+Q=="
+                    crossorigin="anonymous"
+                    referrerpolicy="no-referrer"></script>
         {% endblock base_style %}
         {% block extra_style %}
             <link rel="stylesheet" href="{% static 'css/dbca-custom.css' %}">
@@ -121,8 +120,8 @@
         {% endblock page_footer %}
         <!-- JavaScript blocks -->
         {% block base_js %}
-            <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/js/bootstrap.bundle.min.js"
-                    integrity="sha512-7Pi/otdlbbCR+LnW+F7PwFcSDJOuUJB3OxtEHbg4vSMvzvJjde4Po1v4BR9Gdc9aXNUNFVUY+SK51wWT8WF0Gg=="
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.8/js/bootstrap.bundle.min.js"
+                    integrity="sha512-HvOjJrdwNpDbkGJIG2ZNqDlVqMo77qbs4Me4cah0HoDrfhrbA+8SBlZn1KrvAQw7cILLPFJvdwIgphzQmMm+Pw=="
                     crossorigin="anonymous"
                     referrerpolicy="no-referrer"></script>
         {% endblock base_js %}
