@@ -6,7 +6,7 @@ class TestB4Page(TemplateView):
 
     def get_context_data(self, **kwargs):
         context = super(TestB4Page, self).get_context_data(**kwargs)
-        context["page_title"] = "Test page"
+        context["page_title"] = "Test Bootstrap 4 page"
         context["page_description"] = "Meta tag page description"
         context["site_title"] = "SITE TITLE"
         return context
