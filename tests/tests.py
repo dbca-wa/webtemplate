@@ -19,23 +19,12 @@ class BaseTemplateTest(TestCase):
         # Delete the user after each test case.
         self.user.delete()
 
-    def test_base_b4_template_render(self):
-        """Test that the base_b4 template renders with expected content."""
-        url = reverse("test_page_b4")
+    def test_base_template_render(self):
+        """Test that the base template renders with expected content."""
+        url = reverse("test_page")
         response = self.client.get(url)
         self.assertEqual(response.status_code, 200)
-        self.assertTemplateUsed(response, "webtemplate_dbca/base_b4.html")
-        self.assertContains(
-            response, '<a class="nav-link" id="id_a_login" href="/login/">Log in</a>'
-        )
-        self.assertContains(response, "<title>Test Bootstrap 4 page</title>")
-
-    def test_base_b5_template_render(self):
-        """Test that the base_b5 template renders with expected content."""
-        url = reverse("test_page_b5")
-        response = self.client.get(url)
-        self.assertEqual(response.status_code, 200)
-        self.assertTemplateUsed(response, "webtemplate_dbca/base_b5.html")
+        self.assertTemplateUsed(response, "webtemplate_dbca/base.html")
         self.assertContains(
             response, '<a class="nav-link" id="id_a_login" href="/login/">Log in</a>'
         )
@@ -46,5 +35,5 @@ class BaseTemplateTest(TestCase):
         url = reverse("test_page_2")
         response = self.client.get(url)
         self.assertEqual(response.status_code, 200)
-        self.assertTemplateUsed(response, "webtemplate_dbca/base_b5.html")
+        self.assertTemplateUsed(response, "webtemplate_dbca/base.html")
         self.assertContains(response, "Hello, World!")

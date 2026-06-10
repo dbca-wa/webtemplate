@@ -1,8 +1,16 @@
 # Changelog
 
+## 1.9.0
+
+- Increment Bootstrap 5 to 5.3.8.
+- (Breaking) Remove `base_b4.html` template.
+- (Breaking) Rename `base_b5.html` template to `base.html`.
+- Drop support for Python 3.9 and 3.10.
+- Drop support for Django 3.2 and 4.0.
+
 ## 1.8.3
 
-- Remove templates containing deprecated Bootstrap 3 libraries.
+- (Breaking) Remove templates containing deprecated Bootstrap 3 libraries.
 
 ## 1.8.2
 

@@ -15,16 +15,25 @@
         {% endblock polyfill_js %}
         <!-- CSS styling blocks -->
         {% block base_style %}
-            <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.8/js/bootstrap.min.js"
-                    integrity="sha512-nKXmKvJyiGQy343jatQlzDprflyB5c+tKCzGP3Uq67v+lmzfnZUi/ZT+fc6ITZfSC5HhaBKUIvr/nTLCV+7F+Q=="
-                    crossorigin="anonymous"
-                    referrerpolicy="no-referrer"></script>
+            <link rel="stylesheet"
+                  href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.8/css/bootstrap.min.css"
+                  integrity="sha512-2bBQCjcnw658Lho4nlXJcc6WkV/UxpE/sAokbXPxQNGqmNdQrWqtw26Ns9kFF/yG792pKR1Sx8/Y1Lf1XN4GKA=="
+                  crossorigin="anonymous"
+                  referrerpolicy="no-referrer" />
         {% endblock base_style %}
         {% block extra_style %}
             <link rel="stylesheet" href="{% static 'css/dbca-custom.css' %}">
         {% endblock extra_style %}
         {% block favicon %}
             <link rel="shortcut icon" href="{% static 'favicon.ico' %}">
+            <link rel="icon" type="image/svg+xml" href="{% static 'favicon.svg' %}" />
+            <link rel="icon"
+                  type="image/png"
+                  sizes="96x96"
+                  href="{% static 'favicon-96x96.png' %}" />
+            <link rel="apple-touch-icon"
+                  sizes="180x180"
+                  href="{% static 'apple-touch-icon.png' %}" />
         {% endblock favicon %}
         {% block extra_head %}{% endblock %}
     </head>

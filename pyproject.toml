@@ -1,32 +1,30 @@
 [project]
 name = "webtemplate-dbca"
-version = "1.8.3"
+version = "1.9.0"
 description = "Base HTML templates for DBCA Django projects"
 authors = [{ name = "Ashley Felton", email = "ashley.felton@dbca.wa.gov.au" }]
 readme = "README.md"
 license = "Apache-2.0"
 classifiers = [
   "Framework :: Django",
-  "Framework :: Django :: 3.2",
-  "Framework :: Django :: 4.0",
   "Framework :: Django :: 4.2",
   "Framework :: Django :: 5.0",
   "Framework :: Django :: 5.2",
+  "Framework :: Django :: 6.0",
   "Environment :: Web Environment",
   "Intended Audience :: Developers",
   "Development Status :: 5 - Production/Stable",
   "Programming Language :: Python",
   "Programming Language :: Python :: 3",
-  "Programming Language :: Python :: 3.9",
-  "Programming Language :: Python :: 3.10",
   "Programming Language :: Python :: 3.11",
   "Programming Language :: Python :: 3.12",
   "Programming Language :: Python :: 3.13",
+  "Programming Language :: Python :: 3.14",
   "Topic :: Software Development :: Libraries",
   "Topic :: Software Development :: Libraries :: Python Modules",
 ]
-requires-python = ">=3.9,<4.0"
-dependencies = ["django>=3.2,<6"]
+requires-python = ">=3.11,<4.0"
+dependencies = ["django>=4.2,<6.2"]
 
 [project.urls]
 Homepage = "https://github.com/dbca-wa/webtemplate"
@@ -36,10 +34,10 @@ GitHub = "https://github.com/dbca-wa/webtemplate"
 
 [dependency-groups]
 dev = [
-  "pytest-django>=4.11.0",
-  "pytest-sugar>=1.0.0",
-  "tox>=4.25.0",
-  "tox-uv>=1.25.0",
+  "pytest-django>=4.12.0",
+  "pytest-sugar>=1.1.0",
+  "tox>=4.55.0",
+  "tox-uv>=1.35.0",
 ]
 
 [build-system]
@@ -48,6 +46,31 @@ build-backend = "pdm.backend"
 
 [tool.uv]
 package = true
+
+[tool.tox]
+requires = ["tox>=4"]
+env_list = ["py{311,312,313,314}-dj{42,50,52,60}"]
+
+[tool.tox.env_run_base]
+runner = "uv-venv-lock-runner"
+description = "Run the unit tests with pytest"
+deps = [
+  "pytest-django",
+  { value = "Django>=4.2,<5.0", factors = [
+    "dj42",
+  ] },
+  { value = "Django>=5.0,<5.1", factors = [
+    "dj50",
+  ] },
+  { value = "Django>=5.2,<6", factors = [
+    "dj52",
+  ] },
+  { value = "Django>=6.0,<6.2", factors = [
+    "dj60",
+  ] },
+]
+set_env = { PYTHONWARNINGS = "all" }
+commands = [["pytest", "-v"]]
 
 [tool.pytest.ini_options]
 # https://pytest-django.readthedocs.io/en/latest/configuring_django.html#pyproject-toml-settings
