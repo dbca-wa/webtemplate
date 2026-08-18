@@ -34,15 +34,15 @@ GitHub = "https://github.com/dbca-wa/webtemplate"
 
 [dependency-groups]
 dev = [
-  "pytest-django>=4.12.0",
+  "pytest-django>=4.14.0",
   "pytest-sugar>=1.1.0",
-  "tox>=4.55.0",
-  "tox-uv>=1.35.0",
+  "tox>=4.60.0",
+  "tox-uv>=1.36.0",
 ]
 
 [build-system]
-requires = ["pdm-backend"]
-build-backend = "pdm.backend"
+requires = ["uv_build>=0.12,<0.13"]
+build-backend = "uv_build"
 
 [tool.uv]
 package = true
