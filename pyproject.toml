@@ -36,7 +36,7 @@ GitHub = "https://github.com/dbca-wa/webtemplate"
 dev = [
   "pytest-django>=4.14.0",
   "pytest-sugar>=1.1.0",
-  "tox>=4.60.0",
+  "tox>=4.65.0",
   "tox-uv>=1.36.0",
 ]
 
