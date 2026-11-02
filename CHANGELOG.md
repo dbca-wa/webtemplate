@@ -1,5 +1,10 @@
 # Changelog
 
+## 1.9.1
+
+- Swap build-backend to uv_build.
+- Update dependencies.
+
 ## 1.9.0
 
 - Increment Bootstrap 5 to 5.3.8.
